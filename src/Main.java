@@ -1,15 +1,41 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        int choice;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        do {
+            System.out.println("\nבחר מספר שאלה:");
+            System.out.println("1 - שאלה ראשונה (coinChange)");
+            System.out.println("2 - שאלה שנייה (GreedyLineBreaker)");
+            System.out.println("0 - יציאה");
+            System.out.print("הבחירה שלך: ");
+
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    int[] coins = {1, 6, 10};
+                    int amount = 12;
+                    int result = coinChange.coinChanges(coins, amount);
+                    System.out.println("🔸 Minimal number of coins: " + result);
+                    break;
+
+                case 2:
+                    GreedyLineBreaker.run();
+                    break;
+
+                case 0:
+                    System.out.println("👋 להתראות!");
+                    break;
+
+                default:
+                    System.out.println("❌ מספר שאלה לא חוקי.");
+            }
+
+        } while (choice != 0);
+
+        scanner.close();
     }
 }
